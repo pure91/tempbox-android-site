@@ -110,9 +110,8 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(238, 244, 239, 0.98) 0%, rgba(238, 244, 239, 0.86) 52%, rgba(238, 244, 239, 0.32) 100%);
-  z-index: 1;
+  background: rgba(238, 244, 239, 0.88);
+  z-index: 0;
 }
 
 .hero-inner {
@@ -126,7 +125,7 @@ a {
 
 .hero-visual {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   right: max(24px, calc((100vw - 1120px) / 2));
   bottom: 34px;
   width: 360px;
@@ -444,7 +443,12 @@ h1 {
 }
 
 @media (max-width: 920px) {
-  .site-header,
+  .site-header {
+    gap: 12px;
+    min-height: 68px;
+    padding: 0 20px;
+  }
+
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
@@ -462,19 +466,19 @@ h1 {
   .hero-inner {
     width: min(100% - 40px, 680px);
     min-height: auto;
-    padding: 56px 0 360px;
+    padding: 56px 0 250px;
   }
 
   .hero-visual {
     right: 50%;
-    bottom: 28px;
-    width: 250px;
+    bottom: 24px;
+    width: 210px;
     max-width: none;
     transform: translateX(50%);
   }
 
   .phone-preview {
-    min-height: 300px;
+    min-height: 250px;
     padding: 18px;
     border-radius: 28px;
   }
@@ -502,7 +506,7 @@ h1 {
 
 @media (max-width: 560px) {
   .site-nav {
-    width: 100%;
+    gap: 4px;
   }
 
   .site-nav a {
@@ -519,10 +523,57 @@ h1 {
 
   .hero-inner {
     padding-top: 42px;
+    padding-bottom: 105px;
+  }
+
+  .hero-visual {
+    bottom: 14px;
+    width: 180px;
+    opacity: 0.58;
+  }
+
+  .phone-preview {
+    min-height: 205px;
+    padding: 14px;
+    border-width: 6px;
+  }
+
+  .phone-top {
+    margin-bottom: 14px;
+  }
+
+  .preview-row {
+    grid-template-columns: 28px 1fr;
+    column-gap: 9px;
+    margin-top: 8px;
+    padding: 9px;
+  }
+
+  .preview-row span {
+    width: 28px;
+    height: 28px;
+  }
+
+  .preview-row strong {
+    font-size: 0.78rem;
+  }
+
+  .preview-row em {
+    font-size: 0.7rem;
+  }
+
+  .preview-safe {
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 0.76rem;
   }
 
   h1 {
-    font-size: 2.55rem;
+    font-size: 2.35rem;
+  }
+
+  .hero-lead {
+    font-size: 1rem;
   }
 
   .section-header h2,
