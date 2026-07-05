@@ -3,71 +3,48 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>지원 - 잠깐함</title>
+    <title>지원센터 - 잠깐함</title>
     <meta name="description" content="잠깐함 Android 앱의 지원 안내와 자주 묻는 질문입니다.">
+    <link rel="icon" href="assets/reference/web-favicon.png">
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/site.js" defer></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main">본문으로 이동</a>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="잠깐함 홈">잠깐함</a>
-      <nav class="site-nav" aria-label="주요 메뉴">
-        <a href="index.html">소개</a>
-        <a href="privacy.html">개인정보</a>
-        <a href="support.html">지원</a>
-        <a href="terms.html">이용 안내</a>
+  <body class="pixel-reference-page">
+    <a class="skip-link" href="#content">본문으로 이동</a>
+    <main class="reference-artboard" aria-label="잠깐함 지원센터">
+      <img
+        class="reference-artboard-image"
+        src="docs/reference-ui/웹앱지원페이지.png"
+        alt="잠깐함 지원센터 웹페이지와 모바일 앱 미리보기"
+        width="1448"
+        height="1086"
+      >
+      <nav class="reference-hotspots" aria-label="지원센터 링크">
+        <a class="hotspot support-home" href="index.html">홈</a>
+        <a class="hotspot support-privacy" href="privacy.html">개인정보처리방침</a>
+        <a class="hotspot support-terms" href="terms.html">이용약관</a>
+        <a class="hotspot support-github" href="https://github.com/pure91/tempbox-android-site" target="_blank" rel="noopener noreferrer">GitHub 문의하기</a>
       </nav>
-    </header>
-
-    <main id="main" class="page-shell">
-      <section class="page-hero">
-        <p class="eyebrow">Support</p>
-        <h1>지원</h1>
-        <p>
-          잠깐함은 서버, 로그인, 인터넷 권한 없이 동작하는 Android 로컬 우선 앱입니다.
-          문의와 이슈 확인은 현재 공개 GitHub 저장소를 통해 안내합니다.
-        </p>
-        <a class="button" href="https://github.com/pure91/tempbox-android-site" target="_blank" rel="noopener noreferrer">
-          GitHub 저장소 열기
-        </a>
-      </section>
-
-      <section class="faq-list" aria-label="자주 묻는 질문">
-        <article class="faq-item">
-          <h2>앱 데이터는 어디에 저장되나요?</h2>
-          <p>사용자가 저장한 임시 사진, 메모, 번호는 앱 전용 내부 저장소에 로컬로 저장됩니다.</p>
-        </article>
-        <article class="faq-item">
-          <h2>앱 데이터를 서버로 보내나요?</h2>
-          <p>아니요. 잠깐함은 서버가 없고 `INTERNET` 권한을 사용하지 않습니다.</p>
-        </article>
-        <article class="faq-item">
-          <h2>사진 전체에 접근하나요?</h2>
-          <p>아니요. Android Photo Picker로 사용자가 선택한 사진만 접근합니다. 전체 파일 접근 권한을 사용하지 않습니다.</p>
-        </article>
-        <article class="faq-item">
-          <h2>저장한 항목은 어떻게 지우나요?</h2>
-          <p>앱 안에서 직접 삭제하거나, 사용자가 정한 만료 시간이 지나면 WorkManager 기반 정리 작업으로 삭제됩니다.</p>
-        </article>
-        <article class="faq-item">
-          <h2>구독이 있나요?</h2>
-          <p>구독 없음. 유료 기능은 `pro_lifetime` 평생권 1회 구매 방식으로 제공될 예정입니다.</p>
-        </article>
-        <article class="faq-item">
-          <h2>환불은 어디서 처리하나요?</h2>
-          <p>Google Play에서 구매한 항목의 환불은 Google Play의 구매 내역과 정책 기준으로 처리됩니다.</p>
-        </article>
-      </section>
     </main>
 
-    <footer class="site-footer">
-      <p>© <span data-current-year></span> 잠깐함. All rights reserved.</p>
-      <nav aria-label="하단 메뉴">
-        <a href="privacy.html">개인정보처리방침</a>
-        <a href="support.html">지원</a>
-        <a href="terms.html">이용 안내</a>
-      </nav>
-    </footer>
+    <section id="content" class="semantic-content">
+      <h1>지원</h1>
+      <p>잠깐함을 더 쉽고 안전하게 이용하실 수 있도록 도움말과 가이드를 준비했어요.</p>
+      <h2>빠른 도움말</h2>
+      <ul>
+        <li>잠깐사진</li>
+        <li>잠깐메모</li>
+        <li>잠깐번호</li>
+        <li>만료 시간 설정</li>
+        <li>구독 없음, 평생권 구매 및 복원 방법</li>
+        <li>데이터 삭제</li>
+      </ul>
+      <h2>문의 및 지원</h2>
+      <p>
+        지원은 현재
+        <a href="https://github.com/pure91/tempbox-android-site" target="_blank" rel="noopener noreferrer">GitHub 저장소</a>
+        를 통해 안내합니다.
+      </p>
+    </section>
   </body>
 </html>

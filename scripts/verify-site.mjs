@@ -10,6 +10,16 @@ const requiredFiles = [
   '.gitignore',
   'assets/styles.css',
   'assets/site.js',
+  'assets/reference/app-icon.png',
+  'assets/reference/web-favicon.png',
+  'assets/reference/landing-app-panel.png',
+  'assets/reference/privacy-app-panel.png',
+  'assets/reference/support-app-panel.png',
+  'assets/reference/landing-hero-phones.png',
+  'assets/reference/support-hero-art.png',
+  'docs/reference-ui/웹앱랜딩페이지.png',
+  'docs/reference-ui/웹앱개인정보처리방침페이지.png',
+  'docs/reference-ui/웹앱지원페이지.png',
 ];
 
 const requiredText = {
@@ -26,7 +36,7 @@ const requiredText = {
 };
 
 const approvedExternalLinks = ['https://github.com/pure91/tempbox-android-site'];
-const externalAssetPattern = /\b(?:https?:)?\/\/|fonts\.googleapis|googletagmanager|analytics|cdn\./i;
+const externalAssetPattern = /\b(?:https?:)?\/\/|fonts\.googleapis|googletagmanager|google-analytics|cdn\./i;
 const resourcePattern = /\b(?:src)=["']([^"']+)["']|\b<link\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi;
 const localHrefPattern = /\bhref=["']([^"']+)["']/gi;
 
@@ -72,10 +82,14 @@ async function verifyLocalLinks(file, content) {
   }
 }
 
-function verifyLocalAssets(file, content) {
+async function verifyLocalAssets(file, content) {
   for (const match of content.matchAll(resourcePattern)) {
     const rawValue = match[1] ?? match[2];
     assert(!externalAssetPattern.test(rawValue), `${file} references an external network asset: ${rawValue}`);
+    const withoutHash = rawValue.split('#')[0];
+    if (withoutHash && !isSkippableReference(withoutHash)) {
+      await exists(withoutHash);
+    }
   }
 }
 
@@ -88,7 +102,7 @@ for (const page of pages) {
   assert(content.includes('<html lang="ko">'), `${page} must declare Korean document language.`);
   assert(content.includes('assets/styles.css'), `${page} must use the local stylesheet.`);
   assert(content.includes('assets/site.js'), `${page} must use the local script.`);
-  verifyLocalAssets(page, content);
+  await verifyLocalAssets(page, content);
   await verifyLocalLinks(page, content);
 
   for (const text of requiredText[page]) {
@@ -105,10 +119,14 @@ const script = await read('assets/site.js');
 assert(script.includes('data-current-year'), 'site.js must populate current year targets.');
 assert(!externalAssetPattern.test(script), 'site.js must not reference external network assets.');
 
-const assetFiles = await readdir(path.join(root, 'assets'));
-assert(
-  assetFiles.length === 2 && assetFiles.includes('styles.css') && assetFiles.includes('site.js'),
-  'assets directory must contain only expected local site assets.',
-);
+const assetFiles = await readdir(path.join(root, 'assets'), { recursive: true });
+const unsupportedAsset = assetFiles.find((asset) => {
+  const normalized = asset.replaceAll('\\', '/');
+  if (!normalized.includes('.')) {
+    return false;
+  }
+  return !/\.(css|js|png)$/i.test(normalized);
+});
+assert(!unsupportedAsset, `assets directory contains an unsupported file type: ${unsupportedAsset}`);
 
 console.log(`Verified ${pages.length} pages and ${requiredFiles.length} required files.`);
