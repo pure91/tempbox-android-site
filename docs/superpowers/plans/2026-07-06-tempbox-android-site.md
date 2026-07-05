@@ -70,8 +70,9 @@ const requiredText = {
   'terms.html': ['이용 안내', 'pro_lifetime', '비소모성', '구독을 제공하지 않습니다'],
 };
 
-const externalRefPattern = /\b(?:https?:)?\/\/|fonts\.googleapis|googletagmanager|analytics|cdn\./i;
-const localHrefPattern = /\b(?:href|src)=["']([^"']+)["']/gi;
+const externalAssetPattern = /\b(?:https?:)?\/\/|fonts\.googleapis|googletagmanager|analytics|cdn\./i;
+const resourcePattern = /\b(?:src)=["']([^"']+)["']|\b<link\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi;
+const localHrefPattern = /\bhref=["']([^"']+)["']/gi;
 
 async function exists(relativePath) {
   await access(path.join(root, relativePath));
@@ -91,14 +92,17 @@ function isSkippableReference(value) {
   return value.startsWith('#') || value.startsWith('mailto:') || value.startsWith('tel:');
 }
 
-async function verifyLocalReferences(file, content) {
+async function verifyLocalLinks(file, content) {
   for (const match of content.matchAll(localHrefPattern)) {
     const rawValue = match[1];
     if (isSkippableReference(rawValue)) {
       continue;
     }
 
-    assert(!externalRefPattern.test(rawValue), `${file} references an external asset or URL: ${rawValue}`);
+    if (externalAssetPattern.test(rawValue)) {
+      assert(rawValue.startsWith('https://github.com/pure91/tempbox-android-site'), `${file} references an unapproved external link: ${rawValue}`);
+      continue;
+    }
 
     const withoutHash = rawValue.split('#')[0];
     if (!withoutHash) {
@@ -106,6 +110,13 @@ async function verifyLocalReferences(file, content) {
     }
 
     await exists(withoutHash);
+  }
+}
+
+function verifyLocalAssets(file, content) {
+  for (const match of content.matchAll(resourcePattern)) {
+    const rawValue = match[1] ?? match[2];
+    assert(!externalAssetPattern.test(rawValue), `${file} references an external network asset: ${rawValue}`);
   }
 }
 
@@ -118,8 +129,8 @@ for (const page of pages) {
   assert(content.includes('<html lang="ko">'), `${page} must declare Korean document language.`);
   assert(content.includes('assets/styles.css'), `${page} must use the local stylesheet.`);
   assert(content.includes('assets/site.js'), `${page} must use the local script.`);
-  assert(!externalRefPattern.test(content), `${page} must not reference external network assets.`);
-  await verifyLocalReferences(page, content);
+  verifyLocalAssets(page, content);
+  await verifyLocalLinks(page, content);
 
   for (const text of requiredText[page]) {
     assert(content.includes(text), `${page} is missing required text: ${text}`);
@@ -129,11 +140,11 @@ for (const page of pages) {
 const styles = await read('assets/styles.css');
 assert(styles.includes(':root'), 'styles.css must define shared design tokens.');
 assert(styles.includes('@media'), 'styles.css must include responsive rules.');
-assert(!externalRefPattern.test(styles), 'styles.css must not reference external network assets.');
+assert(!externalAssetPattern.test(styles), 'styles.css must not reference external network assets.');
 
 const script = await read('assets/site.js');
 assert(script.includes('data-current-year'), 'site.js must populate current year targets.');
-assert(!externalRefPattern.test(script), 'site.js must not reference external network assets.');
+assert(!externalAssetPattern.test(script), 'site.js must not reference external network assets.');
 
 const assetFiles = await readdir(path.join(root, 'assets'));
 assert(assetFiles.includes('styles.css') && assetFiles.includes('site.js'), 'assets directory must contain only expected local site assets.');
