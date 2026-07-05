@@ -1,0 +1,10 @@
+{
+  "name": "tempbox-android-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static landing, privacy, and support site for the Android app 잠깐함.",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/verify-site.mjs"
+  }
+}
