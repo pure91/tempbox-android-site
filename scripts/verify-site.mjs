@@ -15,7 +15,17 @@ const requiredFiles = [
 ];
 
 const requiredText = {
-  'index.html': ['잠깐함', '서버 없음', '로그인 없음', '인터넷 권한 없음', 'Android 먼저'],
+  'index.html': [
+    '잠깐함',
+    '서버 없음',
+    '로그인 없음',
+    '인터넷 권한 없음',
+    'Android 먼저',
+    '컴포넌트 예시',
+    '컬러 팔레트',
+    '24시간 45분',
+    '알림/토스트',
+  ],
   'privacy.html': [
     '개인정보처리방침',
     '수집하지 않습니다',
@@ -117,6 +127,14 @@ assert(styles.includes('@media'), 'styles.css must include responsive rules.');
 assert(styles.includes('.landing-shell'), 'styles.css must define the landing shell layout.');
 assert(styles.includes('.phone-preview'), 'styles.css must define the composed mobile preview.');
 assert(styles.includes('.mobile-menu-toggle'), 'styles.css must define responsive mobile navigation.');
+assert(styles.includes('.liquid-glass'), 'styles.css must define reusable liquid glass surfaces.');
+assert(styles.includes('.bubble-field'), 'styles.css must define the reference-like bubble field.');
+assert(styles.includes('.component-board'), 'styles.css must define the mobile component board.');
+assert(styles.includes('.palette-grid'), 'styles.css must define the color palette section.');
+assert(styles.includes('.mobile-hero-illustration'), 'styles.css must define the mobile hero illustration.');
+assert(styles.includes('.box-illustration'), 'styles.css must define the mobile glass box illustration.');
+assert(styles.includes('.expiry-badge-row'), 'styles.css must define status badge rows.');
+assert(styles.includes('backdrop-filter: blur(28px)'), 'styles.css must use stronger liquid-glass blur.');
 assert(!externalAssetPattern.test(styles), 'styles.css must not reference external network assets.');
 for (const [pattern, message] of forbiddenReferencePatterns) {
   assert(!pattern.test(styles), `styles.css ${message}.`);

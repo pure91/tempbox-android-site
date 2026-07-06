@@ -15,7 +15,7 @@
   <body class="landing-body">
     <a class="skip-link" href="#content">본문으로 이동</a>
 
-    <header class="site-header landing-header">
+    <header class="site-header landing-header liquid-glass">
       <a class="brand" href="index.html" aria-label="잠깐함 홈">
         <img src="assets/reference/web-favicon.png" width="34" height="34" alt="">
         <span>잠깐함</span>
@@ -39,7 +39,14 @@
     </header>
 
     <main id="content">
-      <section class="landing-shell hero-section" aria-labelledby="hero-title">
+      <section class="landing-shell hero-section liquid-stage" aria-labelledby="hero-title">
+        <div class="bubble-field" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="hero-copy">
           <p class="pill">Android 먼저 · 로컬 · 프라이버시 퍼스트</p>
           <h1 id="hero-title"><span class="title-line">잠깐 필요한 건,</span><span>잠깐함</span></h1>
@@ -60,12 +67,35 @@
         </div>
 
         <div class="hero-visual" aria-label="잠깐함 앱 미리보기">
-          <div class="phone-preview phone-preview-secondary" aria-hidden="true">
+          <div class="mobile-hero-illustration liquid-glass" aria-hidden="true">
+            <div class="mobile-bubble one"></div>
+            <div class="mobile-bubble two"></div>
+            <div class="box-illustration">
+              <span class="box-card box-card-photo"><i class="icon icon-photo"></i></span>
+              <span class="box-card box-card-memo"><i class="icon icon-memo"></i></span>
+              <span class="box-card box-card-phone"><i class="icon icon-phone"></i></span>
+              <span class="box-front"><i class="icon icon-shield"></i></span>
+              <span class="box-side"></span>
+              <span class="box-lid"></span>
+            </div>
+          </div>
+          <div class="phone-preview phone-preview-secondary liquid-glass" aria-hidden="true">
             <div class="phone-status"></div>
             <div class="mini-card muted"></div>
             <div class="expiry-ring"></div>
           </div>
-          <div class="phone-preview">
+          <div class="phone-preview phone-preview-tertiary liquid-glass" aria-hidden="true">
+            <div class="phone-status"></div>
+            <p>시간이 지나면<br>자동으로 사라져요</p>
+            <div class="expiry-ring small-ring"></div>
+            <div class="time-chip-row mini-time-row">
+              <span>1시간</span>
+              <span>오늘 밤</span>
+              <span>3일</span>
+            </div>
+          </div>
+          <div class="phone-preview liquid-glass">
+            <div class="phone-ambient" aria-hidden="true"></div>
             <div class="phone-status">
               <span>9:41</span>
               <span class="status-dots" aria-hidden="true"></span>
@@ -75,7 +105,7 @@
               <strong>잠깐함</strong>
             </div>
             <p>아직 잠깐 보관할 항목이 없어요</p>
-            <div class="temp-list" aria-hidden="true">
+            <div class="temp-list liquid-glass" aria-hidden="true">
               <span class="temp-row photo">영수증 사진 <em>23분</em></span>
               <span class="temp-row memo">문 앞 메모 <em>1시간</em></span>
               <span class="temp-row phone">임시 번호 <em>오늘</em></span>
@@ -100,36 +130,107 @@
           <h2 id="features-title">갤러리, 연락처, 메모장을 어지럽히지 않게</h2>
         </div>
         <div class="feature-grid landing-feature-grid">
-          <article class="feature-card">
+          <article class="feature-card liquid-glass">
             <i class="feature-icon icon-photo" aria-hidden="true"></i>
             <h3>잠깐사진</h3>
             <p>사진을 잠깐 보관하고 만료되면 정리합니다.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card liquid-glass">
             <i class="feature-icon icon-memo" aria-hidden="true"></i>
             <h3>잠깐메모</h3>
             <p>텍스트 메모를 필요한 시간만 남겨둡니다.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card liquid-glass">
             <i class="feature-icon icon-phone" aria-hidden="true"></i>
             <h3>잠깐번호</h3>
             <p>연락처에 저장하지 않을 번호를 따로 둡니다.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card liquid-glass">
             <i class="feature-icon icon-clock" aria-hidden="true"></i>
             <h3>자동 정리</h3>
             <p>사용자가 정한 시간이 지나면 정리됩니다.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card liquid-glass">
             <i class="feature-icon icon-shield" aria-hidden="true"></i>
             <h3>내 폰 안에만</h3>
             <p>서버, 로그인, 동기화 없이 로컬에 보관합니다.</p>
           </article>
-          <article class="feature-card">
+          <article class="feature-card liquid-glass">
             <i class="feature-icon icon-blocked" aria-hidden="true"></i>
             <h3>광고 없음</h3>
             <p>광고 SDK와 분석 SDK 없이 조용하게 동작합니다.</p>
           </article>
+        </div>
+      </section>
+
+      <section class="landing-shell component-preview-section" aria-labelledby="component-title">
+        <div class="component-board liquid-glass">
+          <div class="section-heading compact">
+            <p class="eyebrow">앱 화면 미리보기</p>
+            <h2 id="component-title">컴포넌트 예시</h2>
+          </div>
+
+          <div class="component-grid">
+            <div class="component-cluster">
+              <p class="component-label">Primary 버튼</p>
+              <a class="play-button compact" href="support.html">Google Play 출시 알림</a>
+            </div>
+            <div class="component-cluster">
+              <p class="component-label">Secondary 버튼</p>
+              <a class="ghost-button compact" href="#features">기능 보기</a>
+            </div>
+            <div class="component-cluster">
+              <p class="component-label">아이콘 카드</p>
+              <div class="mini-icon-row" aria-label="앱 기능 아이콘 예시">
+                <span><i class="icon icon-photo"></i></span>
+                <span><i class="icon icon-memo"></i></span>
+                <span><i class="icon icon-clock"></i></span>
+                <span><i class="icon icon-phone"></i></span>
+              </div>
+            </div>
+            <div class="component-cluster">
+              <p class="component-label">시간 선택 칩</p>
+              <div class="time-chip-row" aria-label="만료 시간 선택 예시">
+                <span>1시간</span>
+                <span>오늘 밤</span>
+                <span class="active">3일</span>
+                <span>7일</span>
+              </div>
+            </div>
+            <div class="component-cluster status-cluster">
+              <p class="component-label">상태 배지</p>
+              <div class="expiry-badge-row" aria-label="만료 상태 배지 예시">
+                <span class="warm">24시간 45분</span>
+                <span class="hot">10시간 15분</span>
+                <span class="cool">2일 18시간</span>
+              </div>
+            </div>
+            <div class="component-cluster toggle-cluster">
+              <p class="component-label">토글/스위치</p>
+              <span class="glass-toggle" aria-label="만료 알림 예시" role="switch" aria-checked="true"></span>
+            </div>
+            <div class="component-cluster toast-cluster">
+              <p class="component-label">알림/토스트</p>
+              <div class="status-toast" role="status">
+                <strong>항목이 저장되었어요</strong>
+                <span>설정한 시간이 지나면 자동으로 정리됩니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="palette-block" aria-labelledby="palette-title">
+            <h3 id="palette-title">컬러 팔레트</h3>
+            <div class="palette-grid">
+              <span style="--swatch:#9ee7d6"><b>Mint</b><em>#9EE7D6</em></span>
+              <span style="--swatch:#6fd0c6"><b>Aqua</b><em>#6FD0C6</em></span>
+              <span style="--swatch:#aee4ff"><b>Ice Blue</b><em>#AEE4FF</em></span>
+              <span style="--swatch:#d8f0ff"><b>Sky</b><em>#D8F0FF</em></span>
+              <span style="--swatch:#e7e5ff"><b>Lavender</b><em>#E7E5FF</em></span>
+              <span style="--swatch:#ffffff"><b>White</b><em>#FFFFFF</em></span>
+              <span style="--swatch:#f3fbff"><b>Glass</b><em>#F3FBFF</em></span>
+              <span style="--swatch:#0f172a"><b>Text</b><em>#0F172A</em></span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -138,22 +239,22 @@
           <h2 id="flow-title">간단한 사용 흐름</h2>
         </div>
         <div class="flow-steps" aria-label="사용 흐름">
-          <article>
+          <article class="liquid-glass">
             <span class="step-number">1</span>
             <strong>생성</strong>
             <p>사진, 메모, 번호를 추가합니다.</p>
           </article>
-          <article>
+          <article class="liquid-glass">
             <span class="step-number">2</span>
             <strong>만료 시간 설정</strong>
             <p>필요한 시간만 선택합니다.</p>
           </article>
-          <article>
+          <article class="liquid-glass">
             <span class="step-number">3</span>
             <strong>보관</strong>
             <p>앱 전용 공간에만 남겨둡니다.</p>
           </article>
-          <article>
+          <article class="liquid-glass">
             <span class="step-number">4</span>
             <strong>자동 정리</strong>
             <p>시간이 지나면 정리됩니다.</p>
@@ -162,32 +263,32 @@
       </section>
 
       <section class="landing-shell promise-price-section" id="lifetime" aria-labelledby="promise-title">
-        <div class="promise-panel">
+        <div class="promise-panel liquid-glass">
           <div class="section-heading compact">
             <p class="eyebrow">잠깐함의 약속</p>
             <h2 id="promise-title">필요 이상으로 가져가지 않습니다</h2>
           </div>
           <div class="promise-grid">
-            <article>
+            <article class="liquid-glass">
               <strong>인터넷 권한 없음</strong>
               <p>앱 기능에 네트워크 권한을 요구하지 않는 방향입니다.</p>
             </article>
-            <article>
+            <article class="liquid-glass">
               <strong>연락처 권한 없음</strong>
               <p>번호는 연락처에 저장하지 않고 앱 안에서만 관리합니다.</p>
             </article>
-            <article>
+            <article class="liquid-glass">
               <strong>전체 파일 접근 없음</strong>
               <p>사진은 Android Photo Picker로 선택한 항목만 다룹니다.</p>
             </article>
-            <article>
+            <article class="liquid-glass">
               <strong>위치·SMS 권한 없음</strong>
               <p>잠깐 보관에 필요 없는 권한은 요청하지 않습니다.</p>
             </article>
           </div>
         </div>
 
-        <aside class="price-card" aria-labelledby="price-title">
+        <aside class="price-card liquid-glass" aria-labelledby="price-title">
           <p class="eyebrow">구독 없이</p>
           <h2 id="price-title">평생권 1회 구매</h2>
           <ul>
@@ -201,7 +302,7 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer liquid-glass">
       <div class="brand-footer">
         <img src="assets/reference/web-favicon.png" width="42" height="42" alt="">
         <div>
