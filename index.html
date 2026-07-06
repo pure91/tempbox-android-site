@@ -6,49 +6,215 @@
     <title>잠깐함 - 잠깐 필요한 건, 잠깐함</title>
     <meta
       name="description"
-      content="잠깐함은 잠깐 필요한 사진, 메모, 전화번호를 내 폰 안에만 보관하고 시간이 지나면 자동으로 사라지게 돕는 Android 앱입니다."
+      content="잠깐함은 잠깐 필요한 사진, 메모, 전화번호를 갤러리나 연락처에 남기지 않고 내 폰 안에 잠깐 보관했다가 시간이 지나면 정리하는 Android 앱입니다."
     >
     <link rel="icon" href="assets/reference/web-favicon.png">
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/site.js" defer></script>
   </head>
-  <body class="pixel-reference-page">
+  <body class="landing-body">
     <a class="skip-link" href="#content">본문으로 이동</a>
-    <main class="reference-artboard" aria-label="잠깐함 랜딩페이지">
-      <img
-        class="reference-artboard-image"
-        src="docs/reference-ui/웹앱랜딩페이지.png"
-        alt="잠깐함 웹 랜딩페이지와 모바일 앱 미리보기"
-        width="1448"
-        height="1086"
-      >
-      <nav class="reference-hotspots" aria-label="랜딩페이지 링크">
-        <a class="hotspot nav-intro" href="index.html">소개</a>
-        <a class="hotspot nav-feature" href="#content">기능</a>
-        <a class="hotspot nav-lifetime" href="#content">평생권</a>
-        <a class="hotspot nav-privacy" href="privacy.html">개인정보</a>
-        <a class="hotspot nav-support" href="support.html">지원</a>
-        <a class="hotspot landing-play" href="support.html">Google Play에서 시작하기</a>
-        <a class="hotspot landing-feature" href="#content">기능 보기</a>
-        <a class="hotspot landing-buy" href="support.html">Google Play에서 구매하기</a>
+
+    <header class="site-header landing-header">
+      <a class="brand" href="index.html" aria-label="잠깐함 홈">
+        <img src="assets/reference/web-favicon.png" width="34" height="34" alt="">
+        <span>잠깐함</span>
+      </a>
+
+      <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="site-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">소개</a>
+        <a href="#features">기능</a>
+        <a href="#lifetime">평생권</a>
+        <a href="privacy.html">개인정보</a>
+        <a href="support.html">지원</a>
       </nav>
+
+      <a class="play-button header-cta" href="support.html">Google Play 준비 중</a>
+    </header>
+
+    <main id="content">
+      <section class="landing-shell hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="pill">Android 먼저 · 로컬 · 프라이버시 퍼스트</p>
+          <h1 id="hero-title"><span class="title-line">잠깐 필요한 건,</span><span>잠깐함</span></h1>
+          <p class="hero-lead">
+            사진, 메모, 전화번호를 갤러리나 연락처에 남기지 않고 잠깐 보관하세요.
+            시간이 지나면 자동 정리되고, 데이터는 내 폰 안에만 머뭅니다.
+          </p>
+          <div class="hero-actions" aria-label="주요 행동">
+            <a class="play-button" href="support.html">Google Play 출시 알림</a>
+            <a class="ghost-button" href="#features">기능 보기</a>
+          </div>
+          <ul class="trust-strip" aria-label="잠깐함 원칙">
+            <li>로그인 없음</li>
+            <li>서버 없음</li>
+            <li>AI 없음</li>
+            <li>광고 없음</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="잠깐함 앱 미리보기">
+          <div class="phone-preview phone-preview-secondary" aria-hidden="true">
+            <div class="phone-status"></div>
+            <div class="mini-card muted"></div>
+            <div class="expiry-ring"></div>
+          </div>
+          <div class="phone-preview">
+            <div class="phone-status">
+              <span>9:41</span>
+              <span class="status-dots" aria-hidden="true"></span>
+            </div>
+            <div class="phone-title">
+              <img src="assets/reference/web-favicon.png" width="28" height="28" alt="">
+              <strong>잠깐함</strong>
+            </div>
+            <p>아직 잠깐 보관할 항목이 없어요</p>
+            <div class="temp-list" aria-hidden="true">
+              <span class="temp-row photo">영수증 사진 <em>23분</em></span>
+              <span class="temp-row memo">문 앞 메모 <em>1시간</em></span>
+              <span class="temp-row phone">임시 번호 <em>오늘</em></span>
+            </div>
+            <div class="quick-actions" aria-label="앱 주요 기능">
+              <span><i class="icon icon-photo"></i>잠깐사진</span>
+              <span><i class="icon icon-memo"></i>잠깐메모</span>
+              <span><i class="icon icon-phone"></i>잠깐번호</span>
+            </div>
+            <div class="phone-nav" aria-hidden="true">
+              <span class="active"></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-shell feature-section" id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+          <p class="eyebrow">잠깐 보관에 필요한 것만</p>
+          <h2 id="features-title">갤러리, 연락처, 메모장을 어지럽히지 않게</h2>
+        </div>
+        <div class="feature-grid landing-feature-grid">
+          <article class="feature-card">
+            <i class="feature-icon icon-photo" aria-hidden="true"></i>
+            <h3>잠깐사진</h3>
+            <p>사진을 잠깐 보관하고 만료되면 정리합니다.</p>
+          </article>
+          <article class="feature-card">
+            <i class="feature-icon icon-memo" aria-hidden="true"></i>
+            <h3>잠깐메모</h3>
+            <p>텍스트 메모를 필요한 시간만 남겨둡니다.</p>
+          </article>
+          <article class="feature-card">
+            <i class="feature-icon icon-phone" aria-hidden="true"></i>
+            <h3>잠깐번호</h3>
+            <p>연락처에 저장하지 않을 번호를 따로 둡니다.</p>
+          </article>
+          <article class="feature-card">
+            <i class="feature-icon icon-clock" aria-hidden="true"></i>
+            <h3>자동 정리</h3>
+            <p>사용자가 정한 시간이 지나면 정리됩니다.</p>
+          </article>
+          <article class="feature-card">
+            <i class="feature-icon icon-shield" aria-hidden="true"></i>
+            <h3>내 폰 안에만</h3>
+            <p>서버, 로그인, 동기화 없이 로컬에 보관합니다.</p>
+          </article>
+          <article class="feature-card">
+            <i class="feature-icon icon-blocked" aria-hidden="true"></i>
+            <h3>광고 없음</h3>
+            <p>광고 SDK와 분석 SDK 없이 조용하게 동작합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-shell flow-section" aria-labelledby="flow-title">
+        <div class="section-heading compact">
+          <h2 id="flow-title">간단한 사용 흐름</h2>
+        </div>
+        <div class="flow-steps" aria-label="사용 흐름">
+          <article>
+            <span class="step-number">1</span>
+            <strong>생성</strong>
+            <p>사진, 메모, 번호를 추가합니다.</p>
+          </article>
+          <article>
+            <span class="step-number">2</span>
+            <strong>만료 시간 설정</strong>
+            <p>필요한 시간만 선택합니다.</p>
+          </article>
+          <article>
+            <span class="step-number">3</span>
+            <strong>보관</strong>
+            <p>앱 전용 공간에만 남겨둡니다.</p>
+          </article>
+          <article>
+            <span class="step-number">4</span>
+            <strong>자동 정리</strong>
+            <p>시간이 지나면 정리됩니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-shell promise-price-section" id="lifetime" aria-labelledby="promise-title">
+        <div class="promise-panel">
+          <div class="section-heading compact">
+            <p class="eyebrow">잠깐함의 약속</p>
+            <h2 id="promise-title">필요 이상으로 가져가지 않습니다</h2>
+          </div>
+          <div class="promise-grid">
+            <article>
+              <strong>인터넷 권한 없음</strong>
+              <p>앱 기능에 네트워크 권한을 요구하지 않는 방향입니다.</p>
+            </article>
+            <article>
+              <strong>연락처 권한 없음</strong>
+              <p>번호는 연락처에 저장하지 않고 앱 안에서만 관리합니다.</p>
+            </article>
+            <article>
+              <strong>전체 파일 접근 없음</strong>
+              <p>사진은 Android Photo Picker로 선택한 항목만 다룹니다.</p>
+            </article>
+            <article>
+              <strong>위치·SMS 권한 없음</strong>
+              <p>잠깐 보관에 필요 없는 권한은 요청하지 않습니다.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="price-card" aria-labelledby="price-title">
+          <p class="eyebrow">구독 없이</p>
+          <h2 id="price-title">평생권 1회 구매</h2>
+          <ul>
+            <li>Google Play Billing 비소모성 상품</li>
+            <li>구독 없음</li>
+            <li>광고 없음</li>
+            <li>가격은 출시 시 Google Play에 표시</li>
+          </ul>
+          <a class="play-button" href="support.html">출시 소식 보기</a>
+        </aside>
+      </section>
     </main>
 
-    <section id="content" class="semantic-content">
-      <h1>잠깐 필요한 건, 잠깐함</h1>
-      <p>Android 먼저 출시 준비 중인 로컬 · 프라이버시 퍼스트 앱입니다.</p>
-      <p>
-        사진, 메모, 전화번호를 잠깐 보관하고 시간이 지나면 자동으로 사라져요.
-        서버도, 로그인도, AI도 없어요. 내 폰 안에서만 안전하게.
-      </p>
-      <ul>
-        <li>로그인 없음</li>
-        <li>서버 없음</li>
-        <li>인터넷 권한 없음</li>
-        <li>광고 없음</li>
-      </ul>
-      <h2>평생권</h2>
-      <p>유료 기능은 Google Play Billing의 pro_lifetime 비소모성 일회성 상품으로 제공될 수 있으며, 구독 없음 원칙을 따릅니다.</p>
-    </section>
+    <footer class="site-footer">
+      <div class="brand-footer">
+        <img src="assets/reference/web-favicon.png" width="42" height="42" alt="">
+        <div>
+          <strong>잠깐함</strong>
+          <p>잠깐 필요한 것은 잠깐만. 내 폰 안에서 조용하게.</p>
+        </div>
+      </div>
+      <nav aria-label="하단 링크">
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="terms.html">이용 안내</a>
+        <a href="support.html">지원</a>
+      </nav>
+      <small>&copy; <span data-current-year></span> 잠깐함. All rights reserved.</small>
+    </footer>
   </body>
 </html>

@@ -9,42 +9,45 @@
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/site.js" defer></script>
   </head>
-  <body class="pixel-reference-page">
+  <body>
     <a class="skip-link" href="#content">본문으로 이동</a>
-    <main class="reference-artboard" aria-label="잠깐함 지원센터">
-      <img
-        class="reference-artboard-image"
-        src="docs/reference-ui/웹앱지원페이지.png"
-        alt="잠깐함 지원센터 웹페이지와 모바일 앱 미리보기"
-        width="1448"
-        height="1086"
-      >
-      <nav class="reference-hotspots" aria-label="지원센터 링크">
-        <a class="hotspot support-home" href="index.html">홈</a>
-        <a class="hotspot support-privacy" href="privacy.html">개인정보처리방침</a>
-        <a class="hotspot support-terms" href="terms.html">이용약관</a>
-        <a class="hotspot support-github" href="https://github.com/pure91/tempbox-android-site" target="_blank" rel="noopener noreferrer">GitHub 문의하기</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="잠깐함 홈">
+        <img src="assets/reference/web-favicon.png" width="34" height="34" alt="">
+        <span>잠깐함</span>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="site-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <a href="index.html">소개</a>
+        <a href="privacy.html">개인정보</a>
+        <a href="support.html">지원</a>
       </nav>
-    </main>
+    </header>
 
-    <section id="content" class="semantic-content">
-      <h1>지원</h1>
-      <p>잠깐함을 더 쉽고 안전하게 이용하실 수 있도록 도움말과 가이드를 준비했어요.</p>
+    <main id="content" class="page-shell prose">
+      <p class="eyebrow">지원</p>
+      <h1>무엇을 도와드릴까요?</h1>
+      <p>잠깐함을 더 쉽고 안전하게 이용하실 수 있도록 도움말을 정리했습니다.</p>
+
       <h2>빠른 도움말</h2>
       <ul>
-        <li>잠깐사진</li>
-        <li>잠깐메모</li>
-        <li>잠깐번호</li>
-        <li>만료 시간 설정</li>
-        <li>구독 없음, 평생권 구매 및 복원 방법</li>
-        <li>데이터 삭제</li>
+        <li>잠깐사진은 갤러리에 남기지 않을 사진을 앱 안에 잠깐 보관하는 기능입니다.</li>
+        <li>잠깐메모는 필요한 시간만 텍스트를 보관하는 기능입니다.</li>
+        <li>잠깐번호는 연락처에 저장하지 않을 번호를 따로 관리하는 기능입니다.</li>
+        <li>만료 시간은 사용자가 직접 설정합니다.</li>
+        <li>평생권은 pro_lifetime 비소모성 1회 구매 상품으로 제공될 예정이며, 구독 없음 원칙을 따릅니다.</li>
       </ul>
+
       <h2>문의 및 지원</h2>
       <p>
-        지원은 현재
+        현재 지원은
         <a href="https://github.com/pure91/tempbox-android-site" target="_blank" rel="noopener noreferrer">GitHub 저장소</a>
         를 통해 안내합니다.
       </p>
-    </section>
+    </main>
   </body>
 </html>

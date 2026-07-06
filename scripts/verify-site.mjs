@@ -12,14 +12,6 @@ const requiredFiles = [
   'assets/site.js',
   'assets/reference/app-icon.png',
   'assets/reference/web-favicon.png',
-  'assets/reference/landing-app-panel.png',
-  'assets/reference/privacy-app-panel.png',
-  'assets/reference/support-app-panel.png',
-  'assets/reference/landing-hero-phones.png',
-  'assets/reference/support-hero-art.png',
-  'docs/reference-ui/웹앱랜딩페이지.png',
-  'docs/reference-ui/웹앱개인정보처리방침페이지.png',
-  'docs/reference-ui/웹앱지원페이지.png',
 ];
 
 const requiredText = {
@@ -39,6 +31,10 @@ const approvedExternalLinks = ['https://github.com/pure91/tempbox-android-site']
 const externalAssetPattern = /\b(?:https?:)?\/\/|fonts\.googleapis|googletagmanager|google-analytics|cdn\./i;
 const resourcePattern = /\b(?:src)=["']([^"']+)["']|\b<link\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi;
 const localHrefPattern = /\bhref=["']([^"']+)["']/gi;
+const forbiddenReferencePatterns = [
+  [/docs\/reference-ui\//i, 'must not render reference PNGs directly'],
+  [/pixel-reference-page|reference-artboard|reference-hotspots|reference-artboard-image/i, 'must not use screenshot artboard rendering'],
+];
 
 async function exists(relativePath) {
   await access(path.join(root, relativePath));
@@ -102,6 +98,11 @@ for (const page of pages) {
   assert(content.includes('<html lang="ko">'), `${page} must declare Korean document language.`);
   assert(content.includes('assets/styles.css'), `${page} must use the local stylesheet.`);
   assert(content.includes('assets/site.js'), `${page} must use the local script.`);
+
+  for (const [pattern, message] of forbiddenReferencePatterns) {
+    assert(!pattern.test(content), `${page} ${message}.`);
+  }
+
   await verifyLocalAssets(page, content);
   await verifyLocalLinks(page, content);
 
@@ -113,7 +114,13 @@ for (const page of pages) {
 const styles = await read('assets/styles.css');
 assert(styles.includes(':root'), 'styles.css must define shared design tokens.');
 assert(styles.includes('@media'), 'styles.css must include responsive rules.');
+assert(styles.includes('.landing-shell'), 'styles.css must define the landing shell layout.');
+assert(styles.includes('.phone-preview'), 'styles.css must define the composed mobile preview.');
+assert(styles.includes('.mobile-menu-toggle'), 'styles.css must define responsive mobile navigation.');
 assert(!externalAssetPattern.test(styles), 'styles.css must not reference external network assets.');
+for (const [pattern, message] of forbiddenReferencePatterns) {
+  assert(!pattern.test(styles), `styles.css ${message}.`);
+}
 
 const script = await read('assets/site.js');
 assert(script.includes('data-current-year'), 'site.js must populate current year targets.');
